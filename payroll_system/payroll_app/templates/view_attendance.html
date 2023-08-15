@@ -1,0 +1,18 @@
+
+
+
+{% block content %}
+<h2>Attendance for {{ employee.first_name }} {{ employee.last_name }} (ID: {{ employee.employee_id }})</h2>
+<ul>
+    {% for in_record, out_record, hours_worked in attendance_info %}
+        <li>
+            Clock In: {{ in_record.clock_in }}
+            | Clock Out: {{ out_record.clock_out }}
+        </li>
+    {% empty %}
+        <li>No attendance records found for this employee.</li>
+    {% endfor %}
+</ul>
+<p>Total Hours Worked: {{ total_hours }}</p>
+<p>Total mins Worked: {{ total_minutes }}</p>
+{% endblock %}
